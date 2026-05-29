@@ -8,11 +8,11 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Barra Superior - Bordô */
+/* Barra Superior */
 .top-bar {
-  background-color: #8B0000; /* Bordô escuro */
+  background-color: #8B0000;
   color: white;
-  padding: 8px 0;
+  padding: 10px 0;
   font-size: 14px;
 }
 
@@ -23,25 +23,24 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   padding: 0 20px;
 }
 
 .top-bar a {
   color: white;
   text-decoration: none;
-  margin-left: 15px;
 }
 
 .social i {
-  margin-left: 12px;
+  margin-left: 15px;
   font-size: 16px;
 }
 
 /* Header Principal */
 .main-header {
   background-color: #f8f8f8;
-  padding: 15px 0;
+  padding: 18px 0;
   border-bottom: 1px solid #ddd;
 }
 
@@ -55,50 +54,52 @@ body {
   gap: 20px;
 }
 
-/* Logo - TOKI.co */
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
   color: #222;
+  text-decoration: none;
 }
 
 .logo-icon {
-  background: linear-gradient(135deg, #8B0000, #4A0000);
+  background: linear-gradient(135deg, #8B0000, #5C0000);
   color: white;
-  width: 55px;
-  height: 55px;
-  border-radius: 10px;
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(139, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.35);
 }
 
-.logo strong {
-  font-size: 26px;
-  letter-spacing: -1px;
+.logo-text strong {
+  font-size: 28px;
+  line-height: 1;
 }
 
-.logo small {
+.logo-text small {
   font-size: 13px;
-  color: #555;
+  color: #444;
   font-weight: 600;
 }
 
 /* Barra de Pesquisa */
 .search-bar {
   flex: 1;
-  max-width: 500px;
+  max-width: 520px;
   display: flex;
+  height: 48px;
 }
 
 .search-bar input {
   flex: 1;
-  padding: 12px 16px;
-  border: 2px solid #ddd;
+  padding: 0 16px;
+  border: 2px solid #ccc;
   border-right: none;
   border-radius: 8px 0 0 8px;
   font-size: 16px;
@@ -109,7 +110,7 @@ body {
   background-color: #8B0000;
   color: white;
   border: none;
-  padding: 0 20px;
+  width: 52px;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
   font-size: 18px;
@@ -119,13 +120,13 @@ body {
 .user-actions {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 28px;
 }
 
 .user-actions a {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   color: #222;
   text-decoration: none;
   font-size: 15px;
@@ -137,7 +138,7 @@ body {
 
 .cart-count {
   position: absolute;
-  top: -6px;
+  top: -5px;
   right: -8px;
   background-color: #8B0000;
   color: white;
@@ -148,12 +149,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 }
 
 /* Categorias */
 .categories {
   background-color: white;
-  padding: 15px 0;
+  padding: 16px 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -161,9 +163,9 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 18px;
   padding: 0 20px;
 }
 
@@ -173,28 +175,37 @@ body {
   align-items: center;
   text-decoration: none;
   color: #333;
-  font-size: 13px;
-  text-align: center;
-  transition: color 0.3s;
+  font-size: 13.5px;
+  transition: all 0.3s;
 }
 
 .category-item i {
-  font-size: 24px;
-  margin-bottom: 6px;
+  font-size: 26px;
+  margin-bottom: 8px;
   color: #8B0000;
 }
 
 .category-item:hover {
   color: #8B0000;
+  transform: translateY(-3px);
 }
 
 /* Responsivo */
+@media (max-width: 992px) {
+  .categories .container {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .top-bar .container {
-    justify-content: center;
     text-align: center;
+    justify-content: center;
   }
+  
   .search-bar {
     max-width: 100%;
+    order: 3;
+    width: 100%;
   }
 }

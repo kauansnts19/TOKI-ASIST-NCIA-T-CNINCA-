@@ -11,16 +11,16 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   
-  <!-- CSS Separado -->
+  <!-- Seu CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-black text-white">
 
   <!-- HEADER -->
-  <header class="bg-black border-b border-gray-800 sticky top-0 z-50 transition-all duration-300">
+  <header class="bg-black border-b border-gray-800 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-[#8B1E3F] rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-[#8B1E3F] rounded-xl flex items-center justify-center text-2xl font-bold">
           T
         </div>
         <h1 class="text-3xl font-bold tracking-tight">Toki<span class="bordo">.Co</span></h1>
@@ -28,13 +28,13 @@
 
       <nav class="hidden md:flex items-center gap-8">
         <a href="#" class="hover:text-[#8B1E3F] transition">Início</a>
+        <a href="#servicos" class="hover:text-[#8B1E3F] transition">Serviços</a>
         <a href="#produtos" class="hover:text-[#8B1E3F] transition">Produtos</a>
-        <a href="#conserto" class="hover:text-[#8B1E3F] transition">Serviços</a>
         <a href="#sobre" class="hover:text-[#8B1E3F] transition">Sobre</a>
       </nav>
 
       <div class="flex items-center gap-4">
-        <button id="cart-btn" class="px-5 py-2.5 border border-gray-700 rounded-full hover:border-[#8B1E3F] transition">
+        <button id="cart-btn" class="px-5 py-2.5 border border-gray-700 rounded-full hover:border-[#8B1E3F]">
           <i class="fa-solid fa-cart-shopping"></i>
         </button>
         <button class="bg-white text-black px-6 py-2.5 rounded-full font-semibold hover:bg-[#8B1E3F] hover:text-white transition">
@@ -44,23 +44,26 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO - BOAS VINDAS -->
   <section class="hero-bg h-screen flex items-center relative">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="max-w-2xl">
-        <h2 class="text-6xl md:text-7xl font-bold leading-tight mb-6">
-          Tecnologia que <span class="bordo">funciona</span>.<br>
-          Conserto que <span class="text-blue-400">confia</span>.
+      <div class="max-w-3xl">
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+          Bem-vindo à <span class="bordo">Toki.Co</span>
         </h2>
-        <p class="text-xl text-gray-300 mb-10">
-          Venda de smartphones, notebooks, acessórios e o melhor serviço de conserto técnico de Curitiba.
+        <p class="text-2xl md:text-3xl text-gray-200 mb-8">
+          Onde sua tecnologia ganha vida nova.<br>
+          <span class="text-blue-400">Venda • Conserto • Confiança</span>
+        </p>
+        <p class="text-lg text-gray-400 mb-10 max-w-xl">
+          Especialistas em conserto e venda de celulares, notebooks, tablets e muito mais em Curitiba.
         </p>
         <div class="flex gap-4">
-          <a href="#produtos" class="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#8B1E3F] hover:text-white transition">
-            Ver Produtos
+          <a href="#servicos" class="bg-[#8B1E3F] hover:bg-[#a6244a] px-8 py-4 rounded-full font-semibold text-lg transition">
+            Nossos Serviços
           </a>
-          <a href="#conserto" class="border border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition">
-            Ver Serviços
+          <a href="#produtos" class="border border-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-semibold text-lg transition">
+            Ver Ofertas
           </a>
         </div>
       </div>
@@ -68,21 +71,129 @@
   </section>
 
   <!-- SERVIÇOS ESPECIALIZADOS -->
-  <section id="conserto" class="py-20 bg-zinc-950">
+  <section id="servicos" class="py-20 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-4">Serviços Especializados</h2>
-      <p class="text-center text-gray-400 mb-12">Reparo rápido, de qualidade e com garantia nos principais aparelhos</p>
+      <p class="text-center text-gray-400 mb-12 text-lg">Conserto rápido e garantido nos principais dispositivos</p>
 
-      <!-- Celulares -->
-      <div class="mb-16">
-        <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3">
-          <i class="fa-solid fa-mobile-screen text-3xl bordo"></i>
-          Celulares
-        </h3>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <div class="bg-zinc-900 p-6 rounded-2xl border border-gray-800 hover:border-[#8B1E3F] transition">
-            <h4 class="font-semibold">iPhone</h4>
-            <p class="text-sm text-gray-400">12, 13, 14, 15, 16 (todas as versões)</p>
-            <span class="block mt-4 text-[#8B1E3F] font-bold">A partir de R$ 89</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
+          <i class="fa-solid fa-mobile-screen text-5xl bordo mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Celulares</h3>
+          <p class="text-gray-400">iPhone, Samsung, Xiaomi, Motorola e mais</p>
+          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 79</span>
+        </div>
+
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
+          <i class="fa-solid fa-tablet-screen-button text-5xl bordo mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Tablets & iPads</h3>
+          <p class="text-gray-400">Troca de tela, bateria, carregamento e software</p>
+          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 119</span>
+        </div>
+
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
+          <i class="fa-solid fa-laptop text-5xl bordo mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Notebooks</h3>
+          <p class="text-gray-400">MacBook, Dell, HP, Lenovo e outros</p>
+          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 149</span>
+        </div>
+
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
+          <i class="fa-solid fa-gamepad text-5xl bordo mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Outros Dispositivos</h3>
+          <p class="text-gray-400">Smartwatches, Fones, Consoles e Acessórios</p>
+          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 49</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS - CARROSSEL -->
+  <section id="produtos" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4">Ofertas em Destaque</h2>
+      <p class="text-center text-gray-400 mb-12">Mais de 20 produtos com preço especial</p>
+
+      <!-- Carrossel Simples -->
+      <div class="relative overflow-hidden" id="carousel">
+        <div class="flex gap-6 transition-transform duration-500" id="carousel-track">
+          <!-- Produtos aqui (exemplo com 8, você pode adicionar mais) -->
+          <div class="min-w-[280px] bg-zinc-900 rounded-2xl overflow-hidden">
+            <div class="h-48 bg-zinc-800 flex items-center justify-center">
+              <i class="fa-solid fa-mobile-screen text-7xl text-blue-400"></i>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold">iPhone 14 Pro</h3>
+              <p class="text-sm text-gray-400">128GB • Preto</p>
+              <span class="text-2xl font-bold text-[#8B1E3F]">R$ 3.799</span>
+            </div>
           </div>
-          <div class="bg-zinc-900 p-6 rounded-2xl border border-gray
+
+          <div class="min-w-[280px] bg-zinc-900 rounded-2xl overflow-hidden">
+            <div class="h-48 bg-zinc-800 flex items-center justify-center">
+              <i class="fa-solid fa-laptop text-7xl text-blue-400"></i>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold">MacBook Air M3</h3>
+              <p class="text-sm text-gray-400">256GB • 8GB RAM</p>
+              <span class="text-2xl font-bold text-[#8B1E3F]">R$ 7.299</span>
+            </div>
+          </div>
+
+          <div class="min-w-[280px] bg-zinc-900 rounded-2xl overflow-hidden">
+            <div class="h-48 bg-zinc-800 flex items-center justify-center">
+              <i class="fa-solid fa-hard-drive text-7xl text-blue-400"></i>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold">HD SSD 1TB</h3>
+              <p class="text-sm text-gray-400">Kingston NV2</p>
+              <span class="text-2xl font-bold text-[#8B1E3F]">R$ 389</span>
+            </div>
+          </div>
+
+          <div class="min-w-[280px] bg-zinc-900 rounded-2xl overflow-hidden">
+            <div class="h-48 bg-zinc-800 flex items-center justify-center">
+              <i class="fa-solid fa-plug-circle-bolt text-7xl text-blue-400"></i>
+            </div>
+            <div class="p-5">
+              <h3 class="font-semibold">RTX 4060 8GB</h3>
+              <p class="text-sm text-gray-400">Placa de Vídeo</p>
+              <span class="text-2xl font-bold text-[#8B1E3F]">R$ 1.899</span>
+            </div>
+          </div>
+
+          <!-- Adicione mais cards aqui conforme necessário -->
+        </div>
+      </div>
+
+      <!-- Botões do Carrossel -->
+      <div class="flex justify-center gap-4 mt-8">
+        <button onclick="moveCarousel(-1)" class="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-full">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="moveCarousel(1)" class="p-4 bg-zinc-900 hover:bg-zinc-800 rounded-full">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript do Carrossel -->
+  <script>
+    let scrollPosition = 0;
+    const track = document.getElementById('carousel-track');
+    const cardWidth = 296; // 280px + gap 16px
+
+    function moveCarousel(direction) {
+      scrollPosition += direction * cardWidth;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (scrollPosition < 0) scrollPosition = 0;
+      if (scrollPosition > maxScroll) scrollPosition = maxScroll;
+      track.style.transform = `translateX(-${scrollPosition}px)`;
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

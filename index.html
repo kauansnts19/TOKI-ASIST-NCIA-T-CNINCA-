@@ -29,7 +29,7 @@
       <nav class="hidden md:flex items-center gap-8">
         <a href="#" class="hover:text-[#8B1E3F] transition">Início</a>
         <a href="#produtos" class="hover:text-[#8B1E3F] transition">Produtos</a>
-        <a href="#conserto" class="hover:text-[#8B1E3F] transition">Conserto</a>
+        <a href="#conserto" class="hover:text-[#8B1E3F] transition">Serviços</a>
         <a href="#sobre" class="hover:text-[#8B1E3F] transition">Sobre</a>
       </nav>
 
@@ -60,120 +60,29 @@
             Ver Produtos
           </a>
           <a href="#conserto" class="border border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition">
-            Solicitar Conserto
+            Ver Serviços
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONSERTO -->
+  <!-- SERVIÇOS ESPECIALIZADOS -->
   <section id="conserto" class="py-20 bg-zinc-950">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-4">Conserto Especializado</h2>
-      <p class="text-center text-gray-400 mb-12">Reparo rápido e com garantia em diversos dispositivos</p>
+      <h2 class="text-4xl font-bold text-center mb-4">Serviços Especializados</h2>
+      <p class="text-center text-gray-400 mb-12">Reparo rápido, de qualidade e com garantia nos principais aparelhos</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-zinc-900 p-8 rounded-2xl border border-gray-800 hover:border-[#8B1E3F] transition card-hover section-animate">
-          <i class="fa-solid fa-mobile-screen text-4xl bordo mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-2">Celulares</h3>
-          <p class="text-gray-400">Troca de tela, bateria, câmera, conector de carga e mais.</p>
-          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 89</span>
-        </div>
-
-        <div class="bg-zinc-900 p-8 rounded-2xl border border-gray-800 hover:border-[#8B1E3F] transition card-hover section-animate">
-          <i class="fa-solid fa-laptop text-4xl bordo mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-2">Notebooks</h3>
-          <p class="text-gray-400">Reparo de tela, teclado, placa-mãe, SSD e troca térmica.</p>
-          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 149</span>
-        </div>
-
-        <div class="bg-zinc-900 p-8 rounded-2xl border border-gray-800 hover:border-[#8B1E3F] transition card-hover section-animate">
-          <i class="fa-solid fa-headphones text-4xl bordo mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-2">Acessórios</h3>
-          <p class="text-gray-400">AirPods, Smartwatches, Fones, Carregadores e etc.</p>
-          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 49</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUTOS -->
-  <section id="produtos" class="py-20 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-4">Nossos Produtos</h2>
-      <p class="text-center text-gray-400 mb-12">Os melhores aparelhos com garantia e preço justo</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Produto 1 -->
-        <div class="bg-zinc-900 rounded-2xl overflow-hidden card-hover section-animate">
-          <div class="h-48 bg-zinc-800 flex items-center justify-center">
-            <i class="fa-solid fa-mobile-screen text-7xl text-blue-400"></i>
+      <!-- Celulares -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+          <i class="fa-solid fa-mobile-screen text-3xl bordo"></i>
+          Celulares
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div class="bg-zinc-900 p-6 rounded-2xl border border-gray-800 hover:border-[#8B1E3F] transition">
+            <h4 class="font-semibold">iPhone</h4>
+            <p class="text-sm text-gray-400">12, 13, 14, 15, 16 (todas as versões)</p>
+            <span class="block mt-4 text-[#8B1E3F] font-bold">A partir de R$ 89</span>
           </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-xl">iPhone 13</h3>
-            <p class="text-gray-400 text-sm">128GB • Preto • Seminovo</p>
-            <span class="block mt-4 text-2xl font-bold text-[#8B1E3F]">R$ 2.199</span>
-            <button class="w-full mt-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-[#8B1E3F] hover:text-white transition">
-              Comprar
-            </button>
-          </div>
-        </div>
-
-        <!-- Produto 2 -->
-        <div class="bg-zinc-900 rounded-2xl overflow-hidden card-hover section-animate">
-          <div class="h-48 bg-zinc-800 flex items-center justify-center">
-            <i class="fa-solid fa-laptop text-7xl text-blue-400"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-xl">MacBook Air M2</h3>
-            <p class="text-gray-400 text-sm">256GB • 8GB RAM</p>
-            <span class="block mt-4 text-2xl font-bold text-[#8B1E3F]">R$ 6.499</span>
-            <button class="w-full mt-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-[#8B1E3F] hover:text-white transition">
-              Comprar
-            </button>
-          </div>
-        </div>
-
-        <!-- Produto 3 -->
-        <div class="bg-zinc-900 rounded-2xl overflow-hidden card-hover section-animate">
-          <div class="h-48 bg-zinc-800 flex items-center justify-center">
-            <i class="fa-solid fa-headphones text-7xl text-blue-400"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-xl">AirPods Pro 2</h3>
-            <p class="text-gray-400 text-sm">Original Apple</p>
-            <span class="block mt-4 text-2xl font-bold text-[#8B1E3F]">R$ 1.399</span>
-            <button class="w-full mt-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-[#8B1E3F] hover:text-white transition">
-              Comprar
-            </button>
-          </div>
-        </div>
-
-        <!-- Produto 4 -->
-        <div class="bg-zinc-900 rounded-2xl overflow-hidden card-hover section-animate">
-          <div class="h-48 bg-zinc-800 flex items-center justify-center">
-            <i class="fa-solid fa-gamepad text-7xl text-blue-400"></i>
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-xl">Samsung Galaxy S23</h3>
-            <p class="text-gray-400 text-sm">256GB • Verde</p>
-            <span class="block mt-4 text-2xl font-bold text-[#8B1E3F]">R$ 2.899</span>
-            <button class="w-full mt-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-[#8B1E3F] hover:text-white transition">
-              Comprar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Botão Voltar ao Topo -->
-  <button id="back-to-top" class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-blue-600 to-[#8B1E3F] rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-all z-50 opacity-0">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
-  <!-- JavaScript -->
-  <script src="script.js"></script>
-</body>
-</html>
+          <div class="bg-zinc-900 p-6 rounded-2xl border border-gray

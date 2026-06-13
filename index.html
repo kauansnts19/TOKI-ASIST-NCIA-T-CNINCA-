@@ -1,178 +1,858 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toki.Co | Venda e Conserto de Aparelhos Tecnológicos</title>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
-  <!-- Seu CSS personalizado (se tiver) -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toki.co — Tecnologia de Alta Performance</title>
+  <meta name="description" content="Reparos especializados, venda de periféricos e configurador de PC personalizado. Toki.co — suporte técnico profissional." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="bg-black text-white">
+<body>
 
-  <!-- HEADER -->
-  <header class="bg-black border-b border-gray-800 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-[#8B1E3F] rounded-xl flex items-center justify-center text-2xl font-bold">
-          T
-        </div>
-        <h1 class="text-3xl font-bold tracking-tight">Toki<span class="bordo">.Co</span></h1>
+  <!-- ========== CARRINHO LATERAL ========== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <span class="cart-title">Carrinho</span>
+      <button class="cart-close" id="cartClose" aria-label="Fechar carrinho">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Seu carrinho está vazio.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">R$ 0,00</span>
       </div>
+      <button class="btn-primary btn-full">Finalizar Compra</button>
+    </div>
+  </aside>
 
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#" class="hover:text-[#8B1E3F] transition">Início</a>
-        <a href="#servicos" class="hover:text-[#8B1E3F] transition">Serviços</a>
-        <a href="#produtos" class="hover:text-[#8B1E3F] transition">Produtos</a>
-        <a href="#sobre" class="hover:text-[#8B1E3F] transition">Sobre</a>
-      </nav>
+  <!-- ========== NAVEGAÇÃO ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo">
+        Toki<span class="logo-dot">.co</span>
+      </a>
 
-      <div class="flex items-center gap-4">
-        <button id="cart-btn" class="px-5 py-2.5 border border-gray-700 rounded-full hover:border-[#8B1E3F]">
-          <i class="fa-solid fa-cart-shopping"></i>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio" class="nav-link active">Início</a></li>
+        <li><a href="#reparos" class="nav-link">Reparos</a></li>
+        <li><a href="#vendas" class="nav-link">Vendas</a></li>
+        <li><a href="#monte-pc" class="nav-link">Monte seu PC</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Abrir carrinho">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
         </button>
-        <button class="bg-white text-black px-6 py-2.5 rounded-full font-semibold hover:bg-[#8B1E3F] hover:text-white transition">
-          Entrar
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- HERO -->
-  <section class="hero-bg h-screen flex items-center relative">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="max-w-3xl">
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-          Bem-vindo à <span class="bordo">Toki.Co</span>
-        </h2>
-        <p class="text-2xl md:text-3xl text-gray-200 mb-8">
-          Onde sua tecnologia ganha vida nova.<br>
-          <span class="text-blue-400">Venda • Conserto • Confiança</span>
-        </p>
-        <p class="text-lg text-gray-400 mb-10 max-w-xl">
-          Especialistas em conserto e venda de celulares, notebooks, tablets e muito mais em Curitiba.
-        </p>
-        <div class="flex gap-4">
-          <a href="#servicos" class="bg-[#8B1E3F] hover:bg-[#a6244a] px-8 py-4 rounded-full font-semibold text-lg transition">
-            Nossos Serviços
-          </a>
-          <a href="#produtos" class="border border-white hover:bg-white hover:text-black px-8 py-4 rounded-full font-semibold text-lg transition">
-            Ver Ofertas
-          </a>
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="inicio">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-grid-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Suporte técnico especializado • São Paulo
+      </div>
+      <h1 class="hero-title">
+        Tecnologia de<br />
+        <em>alta performance</em><br />
+        com suporte especializado
+      </h1>
+      <p class="hero-subtitle">
+        Reparos profissionais, periféricos selecionados e configurações de PC<br class="br-desktop" />
+        personalizadas para quem leva tecnologia a sério.
+      </p>
+      <div class="hero-cta">
+        <a href="#reparos" class="btn-primary">Ver Serviços</a>
+        <a href="#monte-pc" class="btn-ghost">Monte seu PC →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">+5.000</span>
+          <span class="stat-label">Dispositivos reparados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">Índice de satisfação</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">7 anos</span>
+          <span class="stat-label">De experiência</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== REPAROS ========== -->
+  <section class="section" id="reparos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Serviços</span>
+        <h2 class="section-title">Atendimento Especializado<br />em Reparos</h2>
+        <p class="section-desc">Diagnóstico preciso, peças originais e garantia em todos os serviços. Nossa equipe resolve o que outros não conseguem.</p>
+      </div>
+
+      <div class="repair-grid">
+
+        <!-- Card: Celulares -->
+        <article class="repair-card reveal">
+          <div class="repair-card-accent"></div>
+          <div class="repair-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="5" y="2" width="14" height="20" rx="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="repair-title">Celulares</h3>
+          <p class="repair-desc">Troca de tela, bateria, conector de carga, câmera, alto-falante e muito mais. Atendemos todas as marcas e modelos.</p>
+          <ul class="repair-list">
+            <li>Troca de display (OLED/LCD)</li>
+            <li>Substituição de bateria</li>
+            <li>Recuperação de dados</li>
+            <li>Danos por água</li>
+          </ul>
+          <a href="#contato" class="btn-outline">Solicitar Orçamento</a>
+        </article>
+
+        <!-- Card: Tablets -->
+        <article class="repair-card reveal">
+          <div class="repair-card-accent"></div>
+          <div class="repair-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="18" rx="2"/>
+              <line x1="12" y1="17" x2="12.01" y2="17" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="repair-title">Tablets</h3>
+          <p class="repair-desc">Especialistas em iPad e tablets Android. Telas rachadas, baterias fracas ou problemas de sistema — resolvemos tudo.</p>
+          <ul class="repair-list">
+            <li>Tela e vidro traseiro</li>
+            <li>Botões e conectores</li>
+            <li>Problemas de software</li>
+            <li>Atualização e restore</li>
+          </ul>
+          <a href="#contato" class="btn-outline">Solicitar Orçamento</a>
+        </article>
+
+        <!-- Card: Notebooks -->
+        <article class="repair-card reveal">
+          <div class="repair-card-accent"></div>
+          <div class="repair-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="4" width="20" height="14" rx="2"/>
+              <path d="M1 20h22"/>
+              <circle cx="12" cy="11" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="repair-title">Notebooks</h3>
+          <p class="repair-desc">Superaquecimento, teclado, tela, HD/SSD e placa-mãe. Limpeza interna completa com garantia estendida.</p>
+          <ul class="repair-list">
+            <li>Limpeza e pasta térmica</li>
+            <li>Troca de HD/SSD</li>
+            <li>Upgrade de memória RAM</li>
+            <li>Teclado e dobradiças</li>
+          </ul>
+          <a href="#contato" class="btn-outline">Solicitar Orçamento</a>
+        </article>
+
+        <!-- Card: PCs -->
+        <article class="repair-card reveal">
+          <div class="repair-card-accent"></div>
+          <div class="repair-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="14" height="18" rx="1"/>
+              <path d="M16 8h4a2 2 0 012 2v6a2 2 0 01-2 2h-4"/>
+              <line x1="6" y1="7" x2="10" y2="7"/>
+              <line x1="6" y1="11" x2="10" y2="11"/>
+              <circle cx="8" cy="17" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="repair-title">PCs Desktop</h3>
+          <p class="repair-desc">Manutenção completa em desktops. Diagnóstico de hardware, formatação, upgrades e montagem de novas configurações.</p>
+          <ul class="repair-list">
+            <li>Diagnóstico completo</li>
+            <li>Formatação e instalação</li>
+            <li>Upgrade de componentes</li>
+            <li>Configuração de redes</li>
+          </ul>
+          <a href="#contato" class="btn-outline">Solicitar Orçamento</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VENDAS ========== -->
+  <section class="section section-alt" id="vendas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Loja</span>
+        <h2 class="section-title">Periféricos e Componentes<br />de Alta Performance</h2>
+        <p class="section-desc">Produtos selecionados com garantia de fabricante, entrega rápida e suporte pós-venda da Toki.co.</p>
+      </div>
+
+      <!-- Filtros de categoria -->
+      <div class="product-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="perifericos">Periféricos</button>
+        <button class="filter-btn" data-filter="componentes">Componentes</button>
+        <button class="filter-btn" data-filter="armazenamento">Armazenamento</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+
+        <!-- Produto 1 -->
+        <article class="product-card reveal" data-category="perifericos">
+          <div class="product-badge">Mais vendido</div>
+          <div class="product-img">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="20" width="100" height="50" rx="4" fill="#1a1a2e" stroke="#0047CC" stroke-width="1.5"/>
+              <rect x="18" y="28" width="8" height="8" rx="1" fill="#0047CC" opacity=".7"/>
+              <rect x="30" y="28" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="42" y="28" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="54" y="28" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="66" y="28" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="78" y="28" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="18" y="40" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="30" y="40" width="8" height="8" rx="1" fill="#0047CC" opacity=".5"/>
+              <rect x="42" y="40" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="54" y="40" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="66" y="40" width="8" height="8" rx="1" fill="#333"/>
+              <rect x="78" y="40" width="24" height="8" rx="1" fill="#333"/>
+              <rect x="18" y="52" width="20" height="8" rx="1" fill="#333"/>
+              <rect x="42" y="52" width="50" height="8" rx="1" fill="#333"/>
+              <rect x="96" y="52" width="12" height="8" rx="1" fill="#0047CC" opacity=".7"/>
+            </svg>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Periférico</span>
+            <h3 class="product-name">Teclado Mecânico TKL Pro</h3>
+            <p class="product-desc">Switch Blue, RGB por tecla, anti-ghosting total</p>
+            <div class="product-footer">
+              <span class="product-price">R$ 389,90</span>
+              <button class="btn-cart" data-name="Teclado Mecânico TKL Pro" data-price="389.90">+ Carrinho</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 2 -->
+        <article class="product-card reveal" data-category="perifericos">
+          <div class="product-img">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="48" rx="35" ry="22" fill="#1a1a2e" stroke="#0047CC" stroke-width="1.5"/>
+              <ellipse cx="60" cy="35" rx="20" ry="12" fill="#222" stroke="#333" stroke-width="1"/>
+              <rect x="55" y="28" width="10" height="14" rx="5" fill="#0047CC" opacity=".6"/>
+              <circle cx="75" cy="44" r="3" fill="#0047CC" opacity=".8"/>
+              <circle cx="45" cy="52" r="3" fill="#333"/>
+              <line x1="60" y1="35" x2="60" y2="70" stroke="#333" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Periférico</span>
+            <h3 class="product-name">Mouse Gamer Precision X</h3>
+            <p class="product-desc">Sensor óptico 25.600 DPI, 6 botões programáveis</p>
+            <div class="product-footer">
+              <span class="product-price">R$ 249,90</span>
+              <button class="btn-cart" data-name="Mouse Gamer Precision X" data-price="249.90">+ Carrinho</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 3 -->
+        <article class="product-card reveal" data-category="componentes">
+          <div class="product-badge new">Novo</div>
+          <div class="product-img">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="15" y="15" width="90" height="50" rx="2" fill="#1a1a2e" stroke="#0047CC" stroke-width="1.5"/>
+              <rect x="25" y="23" width="28" height="20" rx="1" fill="#0047CC" opacity=".2" stroke="#0047CC" stroke-width="1"/>
+              <rect x="65" y="23" width="28" height="20" rx="1" fill="#333" stroke="#444" stroke-width="1"/>
+              <rect x="25" y="47" width="70" height="6" rx="1" fill="#222" stroke="#333" stroke-width="1"/>
+              <circle cx="39" cy="33" r="6" fill="#0047CC" opacity=".7"/>
+              <line x1="15" y1="10" x2="105" y2="10" stroke="#333" stroke-width="3"/>
+              <rect x="30" y="58" width="6" height="8" fill="#333"/>
+              <rect x="84" y="58" width="6" height="8" fill="#333"/>
+            </svg>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Componente</span>
+            <h3 class="product-name">Placa-Mãe B650M DDR5</h3>
+            <p class="product-desc">Socket AM5, Wi-Fi 6E integrado, 4x slots M.2</p>
+            <div class="product-footer">
+              <span class="product-price">R$ 1.149,90</span>
+              <button class="btn-cart" data-name="Placa-Mãe B650M DDR5" data-price="1149.90">+ Carrinho</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 4 -->
+        <article class="product-card reveal" data-category="componentes">
+          <div class="product-img">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="25" width="80" height="30" rx="2" fill="#1a1a2e" stroke="#0047CC" stroke-width="1.5"/>
+              <rect x="28" y="33" width="12" height="14" rx="1" fill="#0047CC" opacity=".6"/>
+              <rect x="44" y="33" width="12" height="14" rx="1" fill="#0047CC" opacity=".4"/>
+              <rect x="60" y="33" width="30" height="6" rx="1" fill="#333"/>
+              <rect x="60" y="41" width="20" height="6" rx="1" fill="#222"/>
+              <rect x="20" y="20" width="80" height="5" rx="1" fill="#333" opacity=".5"/>
+              <rect x="20" y="55" width="80" height="5" rx="1" fill="#333" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Componente</span>
+            <h3 class="product-name">Memória RAM DDR5 32GB</h3>
+            <p class="product-desc">6000MHz CL30, dual channel, XMP 3.0 pronto</p>
+            <div class="product-footer">
+              <span class="product-price">R$ 699,90</span>
+              <button class="btn-cart" data-name="Memória RAM DDR5 32GB" data-price="699.90">+ Carrinho</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 5 -->
+        <article class="product-card reveal" data-category="armazenamento">
+          <div class="product-badge">Hot</div>
+          <div class="product-img">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="25" y="28" width="70" height="24" rx="2" fill="#1a1a2e" stroke="#0047CC" stroke-width="1.5"/>
+              <rect x="33" y="35" width="40" height="10" rx="1" fill="#0047CC" opacity=".2" stroke="#0047CC" stroke-width=".8"/>
+              <circle cx="82" cy="40" r="6" fill="#333" stroke="#444" stroke-width="1"/>
+              <circle cx="82" cy="40" r="3" fill="#0047CC" opacity=".7"/>
+              <text x="38" y="43" font-size="7" fill="#0047CC" font-family="monospace">NVMe SSD</text>
+              <rect x="25" y="24" width="70" height="4" rx="1" fill="#222"/>
+              <rect x="25" y="52" width="70" height="4" rx="1" fill="#222"/>
+            </svg>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Armazenamento</span>
+            <h3 class="product-name">SSD NVMe M.2 1TB Gen4</h3>
+            <p class="product-desc">7.400MB/s leitura, TLC NAND, dissipador incluso</p>
+            <div class="product-footer">
+              <span class="product-price">R$ 459,90</span>
+              <button class="btn-cart" data-name="SSD NVMe M.2 1TB Gen4" data-price="459.90">+ Carrinho</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 6 -->
+        <article class="product-card reveal" data-category="componentes">
+          <div class="product-img">
+            <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="18" y="15" width="84" height="50" rx="2" fill="#1a1a2e" stroke="#0047CC" stroke-width="1.5"/>
+              <circle cx="60" cy="40" r="16" fill="#0a0a1a" stroke="#0047CC" stroke-width="1.5"/>
+              <circle cx="60" cy="40" r="8" fill="#0047CC" opacity=".3"/>
+              <circle cx="60" cy="40" r="3" fill="#0047CC" opacity=".9"/>
+              <line x1="60" y1="24" x2="60" y2="31" stroke="#0047CC" stroke-width="1.5"/>
+              <line x1="60" y1="49" x2="60" y2="56" stroke="#0047CC" stroke-width="1.5"/>
+              <line x1="44" y1="40" x2="51" y2="40" stroke="#0047CC" stroke-width="1.5"/>
+              <line x1="69" y1="40" x2="76" y2="40" stroke="#0047CC" stroke-width="1.5"/>
+              <rect x="28" y="22" width="12" height="8" rx="1" fill="#333"/>
+              <rect x="80" y="22" width="12" height="8" rx="1" fill="#333"/>
+              <rect x="28" y="50" width="12" height="8" rx="1" fill="#333"/>
+              <rect x="80" y="50" width="12" height="8" rx="1" fill="#333"/>
+            </svg>
+          </div>
+          <div class="product-info">
+            <span class="product-cat">Componente</span>
+            <h3 class="product-name">Fonte 850W 80+ Gold</h3>
+            <p class="product-desc">Modular, proteções completas, cabo flat incluídos</p>
+            <div class="product-footer">
+              <span class="product-price">R$ 589,90</span>
+              <button class="btn-cart" data-name="Fonte 850W 80+ Gold" data-price="589.90">+ Carrinho</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MONTE SEU PC ========== -->
+  <section class="section" id="monte-pc">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Configurador</span>
+        <h2 class="section-title">Monte Seu PC<br />dos Sonhos</h2>
+        <p class="section-desc">Selecione os componentes, veja o total em tempo real e finalize seu orçamento com um especialista Toki.co.</p>
+      </div>
+
+      <div class="builder-layout">
+        <div class="builder-components">
+
+          <!-- Gabinete -->
+          <div class="builder-category reveal">
+            <div class="builder-cat-header">
+              <div class="builder-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="3" width="14" height="18" rx="1"/>
+                  <line x1="6" y1="7" x2="10" y2="7"/>
+                  <line x1="6" y1="11" x2="10" y2="11"/>
+                  <circle cx="8" cy="17" r="1" fill="currentColor"/>
+                </svg>
+              </div>
+              <span class="builder-cat-name">Gabinete</span>
+            </div>
+            <select class="builder-select" data-category="gabinete">
+              <option value="">— Selecione —</option>
+              <option value="249.90" data-label="Gabinete Mid-Tower Compacto">Gabinete Mid-Tower Compacto — R$ 249,90</option>
+              <option value="449.90" data-label="Gabinete Full-Tower ATX Glass">Gabinete Full-Tower ATX Glass — R$ 449,90</option>
+              <option value="699.90" data-label="Gabinete Premium Mesh 360">Gabinete Premium Mesh 360 — R$ 699,90</option>
+            </select>
+          </div>
+
+          <!-- Processador -->
+          <div class="builder-category reveal">
+            <div class="builder-cat-header">
+              <div class="builder-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="4" y="4" width="16" height="16" rx="2"/>
+                  <rect x="9" y="9" width="6" height="6"/>
+                  <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                  <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                  <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/>
+                  <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/>
+                </svg>
+              </div>
+              <span class="builder-cat-name">Processador</span>
+            </div>
+            <select class="builder-select" data-category="processador">
+              <option value="">— Selecione —</option>
+              <option value="899.90" data-label="Ryzen 5 7600X (6C/12T)">Ryzen 5 7600X (6C/12T) — R$ 899,90</option>
+              <option value="1499.90" data-label="Ryzen 7 7700X (8C/16T)">Ryzen 7 7700X (8C/16T) — R$ 1.499,90</option>
+              <option value="2299.90" data-label="Ryzen 9 7900X (12C/24T)">Ryzen 9 7900X (12C/24T) — R$ 2.299,90</option>
+              <option value="1199.90" data-label="Intel Core i5-13600K (14C)">Intel Core i5-13600K (14C) — R$ 1.199,90</option>
+              <option value="1899.90" data-label="Intel Core i7-13700K (16C)">Intel Core i7-13700K (16C) — R$ 1.899,90</option>
+            </select>
+          </div>
+
+          <!-- Placa-mãe -->
+          <div class="builder-category reveal">
+            <div class="builder-cat-header">
+              <div class="builder-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="2"/>
+                  <rect x="6" y="6" width="5" height="5"/>
+                  <rect x="13" y="6" width="5" height="5"/>
+                  <rect x="6" y="13" width="12" height="5"/>
+                </svg>
+              </div>
+              <span class="builder-cat-name">Placa-Mãe</span>
+            </div>
+            <select class="builder-select" data-category="placa-mae">
+              <option value="">— Selecione —</option>
+              <option value="699.90" data-label="B650M ATX DDR5 AM5">B650M ATX DDR5 AM5 — R$ 699,90</option>
+              <option value="1099.90" data-label="X670E Pro DDR5 AM5 Wi-Fi">X670E Pro DDR5 AM5 Wi-Fi — R$ 1.099,90</option>
+              <option value="799.90" data-label="Z790 DDR5 LGA1700">Z790 DDR5 LGA1700 — R$ 799,90</option>
+            </select>
+          </div>
+
+          <!-- Memória RAM -->
+          <div class="builder-category reveal">
+            <div class="builder-cat-header">
+              <div class="builder-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="7" width="20" height="10" rx="1"/>
+                  <line x1="6" y1="7" x2="6" y2="17"/>
+                  <line x1="10" y1="7" x2="10" y2="17"/>
+                  <line x1="14" y1="7" x2="14" y2="17"/>
+                  <line x1="18" y1="7" x2="18" y2="17"/>
+                </svg>
+              </div>
+              <span class="builder-cat-name">Memória RAM</span>
+            </div>
+            <select class="builder-select" data-category="ram">
+              <option value="">— Selecione —</option>
+              <option value="299.90" data-label="16GB DDR5 5600MHz">16GB DDR5 5600MHz — R$ 299,90</option>
+              <option value="499.90" data-label="32GB DDR5 6000MHz">32GB DDR5 6000MHz — R$ 499,90</option>
+              <option value="899.90" data-label="64GB DDR5 6000MHz">64GB DDR5 6000MHz — R$ 899,90</option>
+            </select>
+          </div>
+
+          <!-- Placa de Vídeo -->
+          <div class="builder-category reveal">
+            <div class="builder-cat-header">
+              <div class="builder-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="6" width="20" height="12" rx="2"/>
+                  <circle cx="9" cy="12" r="3"/>
+                  <circle cx="15" cy="12" r="3"/>
+                  <line x1="2" y1="10" x2="2" y2="10"/>
+                </svg>
+              </div>
+              <span class="builder-cat-name">Placa de Vídeo</span>
+            </div>
+            <select class="builder-select" data-category="gpu">
+              <option value="">— Selecione —</option>
+              <option value="1699.90" data-label="RX 7600 8GB GDDR6">RX 7600 8GB GDDR6 — R$ 1.699,90</option>
+              <option value="2799.90" data-label="RTX 4070 12GB GDDR6X">RTX 4070 12GB GDDR6X — R$ 2.799,90</option>
+              <option value="3999.90" data-label="RTX 4080 16GB GDDR6X">RTX 4080 16GB GDDR6X — R$ 3.999,90</option>
+              <option value="5999.90" data-label="RTX 4090 24GB GDDR6X">RTX 4090 24GB GDDR6X — R$ 5.999,90</option>
+            </select>
+          </div>
+
+          <!-- Armazenamento -->
+          <div class="builder-category reveal">
+            <div class="builder-cat-header">
+              <div class="builder-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                  <path d="M3 5v14a9 3 0 0018 0V5"/>
+                  <line x1="3" y1="12" x2="21" y2="12"/>
+                </svg>
+              </div>
+              <span class="builder-cat-name">Armazenamento</span>
+            </div>
+            <select class="builder-select" data-category="storage">
+              <option value="">— Selecione —</option>
+              <option value="299.90" data-label="SSD NVMe 500GB Gen3">SSD NVMe 500GB Gen3 — R$ 299,90</option>
+              <option value="459.90" data-label="SSD NVMe 1TB Gen4">SSD NVMe 1TB Gen4 — R$ 459,90</option>
+              <option value="799.90" data-label="SSD NVMe 2TB Gen4">SSD NVMe 2TB Gen4 — R$ 799,90</option>
+            </select>
+          </div>
+
+          <!-- Fonte -->
+          <div class="builder-category reveal">
+            <div class="builder-cat-header">
+              <div class="builder-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 8v4l3 3"/>
+                </svg>
+              </div>
+              <span class="builder-cat-name">Fonte</span>
+            </div>
+            <select class="builder-select" data-category="fonte">
+              <option value="">— Selecione —</option>
+              <option value="349.90" data-label="650W 80+ Bronze Modular">650W 80+ Bronze Modular — R$ 349,90</option>
+              <option value="489.90" data-label="750W 80+ Gold Modular">750W 80+ Gold Modular — R$ 489,90</option>
+              <option value="589.90" data-label="850W 80+ Gold Full Modular">850W 80+ Gold Full Modular — R$ 589,90</option>
+              <option value="799.90" data-label="1000W 80+ Platinum Modular">1000W 80+ Platinum Modular — R$ 799,90</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Resumo do build -->
+        <aside class="builder-summary">
+          <div class="summary-card">
+            <h3 class="summary-title">Resumo do Build</h3>
+            <ul class="summary-list" id="summaryList">
+              <li class="summary-empty">Nenhum componente selecionado.</li>
+            </ul>
+            <div class="summary-divider"></div>
+            <div class="summary-total-row">
+              <span>Total estimado</span>
+              <span class="summary-total" id="buildTotal">R$ 0,00</span>
+            </div>
+            <p class="summary-note">* Valores sujeitos a disponibilidade de estoque. Preços sem frete.</p>
+            <button class="btn-primary btn-full" id="finalizarBuild">Finalizar Orçamento</button>
+            <button class="btn-ghost btn-full" id="limparBuild">Limpar Seleção</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DEPOIMENTOS ========== -->
+  <section class="section section-alt" id="depoimentos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Depoimentos</span>
+        <h2 class="section-title">O que dizem nossos clientes</h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <article class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Levei meu notebook com tela quebrada e em menos de 48 horas estava como novo. Atendimento impecável e preço justo. Recomendo sem hesitar."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">LM</div>
+            <div>
+              <span class="author-name">Lucas Martins</span>
+              <span class="author-role">Designer Gráfico</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Montei meu PC gamer com a ajuda da equipe Toki.co. Eles sugeriam os melhores componentes dentro do meu orçamento. Ficou incrível!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AF</div>
+            <div>
+              <span class="author-name">Ana Ferreira</span>
+              <span class="author-role">Streamer & Content Creator</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Comprei um SSD NVMe aqui e a entrega foi rapidíssima. O produto veio bem embalado e o suporte pós-venda é nota 10. Já comprei 3 vezes!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RO</div>
+            <div>
+              <span class="author-name">Rafael Oliveira</span>
+              <span class="author-role">Engenheiro de Software</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE ========== -->
+  <section class="section about-section" id="sobre">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-content reveal">
+          <span class="section-tag">Sobre nós</span>
+          <h2 class="section-title" style="text-align:left;">Quem é a<br />Toki.co?</h2>
+          <p class="about-text">Nascemos em 2017 com um propósito simples: democratizar o acesso à tecnologia de qualidade. Ao longo dos anos, crescemos de uma pequena bancada de reparos para uma empresa completa — reparamos, vendemos e ajudamos você a montar o setup ideal.</p>
+          <p class="about-text">Nossa equipe é formada por técnicos certificados com mais de 10 anos de experiência em hardware e software. Cada reparo é feito com peças originais ou de alta compatibilidade, e cada PC montado passa por testes de estabilidade rigorosos antes da entrega.</p>
+          <div class="about-pillars">
+            <div class="pillar">
+              <span class="pillar-icon">⚡</span>
+              <span>Rapidez</span>
+            </div>
+            <div class="pillar">
+              <span class="pillar-icon">🛡</span>
+              <span>Garantia</span>
+            </div>
+            <div class="pillar">
+              <span class="pillar-icon">🔬</span>
+              <span>Precisão</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="about-card-stack">
+            <div class="about-stat-card">
+              <span class="asc-number">+5.000</span>
+              <span class="asc-label">Dispositivos reparados</span>
+            </div>
+            <div class="about-stat-card">
+              <span class="asc-number">7 anos</span>
+              <span class="asc-label">No mercado</span>
+            </div>
+            <div class="about-stat-card">
+              <span class="asc-number">98%</span>
+              <span class="asc-label">Clientes satisfeitos</span>
+            </div>
+            <div class="about-stat-card">
+              <span class="asc-number">+800</span>
+              <span class="asc-label">PCs montados</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos" class="py-20 bg-zinc-950">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-4">Serviços Especializados</h2>
-      <p class="text-center text-gray-400 mb-12 text-lg">Conserto rápido e garantido nos principais dispositivos</p>
+  <!-- ========== CONTATO ========== -->
+  <section class="section section-alt" id="contato">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Contato</span>
+        <h2 class="section-title">Fale com a Toki.co</h2>
+        <p class="section-desc">Dúvidas, orçamentos ou suporte — nossa equipe responde em até 2 horas úteis.</p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
-          <i class="fa-solid fa-mobile-screen text-5xl bordo mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-3">Celulares</h3>
-          <p class="text-gray-400">iPhone, Samsung, Xiaomi, Motorola e mais</p>
-          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 79</span>
+      <div class="contact-layout">
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <span class="ci-label">Endereço</span>
+              <span class="ci-value">Av. Paulista, 1000 — São Paulo, SP</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.5 10.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012.41 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.8a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="ci-label">Telefone / WhatsApp</span>
+              <span class="ci-value">(11) 99999-0000</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <span class="ci-label">E-mail</span>
+              <span class="ci-value">contato@toki.co</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <span class="ci-label">Horário de atendimento</span>
+              <span class="ci-value">Seg–Sex: 9h–18h | Sáb: 9h–13h</span>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
-          <i class="fa-solid fa-tablet-screen-button text-5xl bordo mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-3">Tablets & iPads</h3>
-          <p class="text-gray-400">Troca de tela, bateria, carregamento e software</p>
-          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 119</span>
-        </div>
-
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
-          <i class="fa-solid fa-laptop text-5xl bordo mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-3">Notebooks</h3>
-          <p class="text-gray-400">MacBook, Dell, HP, Lenovo e outros</p>
-          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 149</span>
-        </div>
-
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-gray-800 hover:border-[#8B1E3F] transition-all">
-          <i class="fa-solid fa-gamepad text-5xl bordo mb-6"></i>
-          <h3 class="text-2xl font-semibold mb-3">Outros Dispositivos</h3>
-          <p class="text-gray-400">Smartwatches, Fones, Consoles e Acessórios</p>
-          <span class="block mt-6 text-[#8B1E3F] font-bold">A partir de R$ 49</span>
-        </div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-0000" />
+          </div>
+          <div class="form-group">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto">
+              <option value="">Selecione o assunto</option>
+              <option value="reparo">Solicitar reparo</option>
+              <option value="orcamento-pc">Orçamento de PC</option>
+              <option value="produto">Dúvida sobre produto</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva o que precisa..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full">Enviar Mensagem</button>
+          <p class="form-success" id="formSuccess" style="display:none">✓ Mensagem enviada! Retornaremos em breve.</p>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- PRODUTOS - CARROSSEL COM IMAGENS -->
-  <section id="produtos" class="py-20 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-4">Ofertas em Destaque</h2>
-      <p class="text-center text-gray-400 mb-12">Promoções imperdíveis em placas de vídeo, gabinetes e mais!</p>
-
-      <div class="relative overflow-hidden" id="carousel">
-        <div class="flex gap-6 transition-transform duration-700 ease-in-out" id="carousel-track">
-
-          <!-- Produto 1 -->
-          <div class="min-w-[280px] bg-zinc-900 rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300">
-            <div class="h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2_hU6PU_XJlMX057sVQaQ8GFxiM4yHOEH3Q&s" 
-                   alt="RTX 4070 Ti Super" 
-                   class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-lg">RTX 4070 Ti Super</h3>
-              <p class="text-sm text-gray-400">12GB GDDR6X • MSI Ventus</p>
-              <span class="block mt-3 text-2xl font-bold text-[#8B1E3F]">R$ 4.299</span>
-              <span class="text-xs line-through text-gray-500">R$ 4.899,00</span>
-            </div>
-          </div>
-
-          <!-- Produto 2 -->
-          <div class="min-w-[280px] bg-zinc-900 rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300">
-            <div class="h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-              <img src="https://images2.kabum.com.br/produtos/fotos/430152/gabinete-gamer-lancool-216-argb-mid-tower-e-atx-lateral-em-vidro-temperado-3x-cooler-fan-preto-lancool-216rx-black_1681917301_gg.jpg" 
-                   alt="Gabinete Lian Li Lancool 216" 
-                   class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-lg">Gabinete Gamer RGB</h3>
-              <p class="text-sm text-gray-400"></p>
-              <span class="block mt-3 text-2xl font-bold text-[#8B1E3F]">R$ 894,00</span>
-            </div>
-          </div>
-
-          <!-- Produto 3 -->
-          <div class="min-w-[280px] bg-zinc-900 rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300">
-            <div class="h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-              <img src="https://images8.kabum.com.br/produtos/fotos/sync_mirakl/523518/xlarge/Processador-AMD-Ryzen-5-5600GT-3-6GHz-4-6GHz-Turbo-Cache-19MB-6-N-cleos-V-deo-Integrado-Radeon-AM4-100-100001488BOX_1781013543.jpg" 
-                   alt="RTX 4070 Ti Super" 
-                   class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-lg">Processador gamer</h3>
-              <p class="text-sm text-gray-400">Amd processador Rizen 5 5600 gt</p>
-              <span class="block mt-3 text-2xl font-bold text-[#8B1E3F]">R$ 897,67</span>
-              <span class="text-xs line-through text-gray-500">R$ 1.120</span>
-            </div>
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#inicio" class="nav-logo footer-logo">Toki<span class="logo-dot">.co</span></a>
+          <p class="footer-tagline">Tecnologia de alta performance com suporte especializado. Reparamos, vendemos e construímos o seu setup ideal.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
           </div>
         </div>
-     <!-- Produto 4 -->
-          <div class="min-w-[280px] bg-zinc-900 rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300">
-            <div class="h-56 bg-zinc-950 flex items-center justify-center overflow-hidden">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnIjxcpRqhShjiaOi1phjxe_lPqpzR2xMtaj2dqbh3VA&s=10" 
-                   alt="B550 GAME PLUS MSI" 
-                   class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-lg">Placa mãe </h3>
-              <p class="text-sm text-gray-400">B550 GAME PLUS MSI</p>
-              <span class="block mt-3 text-2xl font-bold text-[#8B1E3F]">R$ 720,50</span>
-              <span class="text-xs line-through text-gray-500">R$ 920,00</span>
-            </div>
-          </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Serviços</h4>
+          <ul class="footer-links">
+            <li><a href="#reparos">Reparo de Celulares</a></li>
+            <li><a href="#reparos">Reparo de Tablets</a></li>
+            <li><a href="#reparos">Reparo de Notebooks</a></li>
+            <li><a href="#reparos">Manutenção de PCs</a></li>
+            <li><a href="#monte-pc">Montagem de PCs</a></li>
+          </ul>
         </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Loja</h4>
+          <ul class="footer-links">
+            <li><a href="#vendas">Teclados e Mouses</a></li>
+            <li><a href="#vendas">Placas-Mãe</a></li>
+            <li><a href="#vendas">Memórias RAM</a></li>
+            <li><a href="#vendas">SSDs e HDs</a></li>
+            <li><a href="#vendas">Fontes e Gabinetes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Empresa</h4>
+          <ul class="footer-links">
+            <li><a href="#sobre">Sobre a Toki.co</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#">Política de Garantia</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2024 Toki.co — Todos os direitos reservados.</span>
+        <span>CNPJ: 00.000.000/0001-00 • São Paulo, SP</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de orçamento do PC -->
+  <div class="modal-overlay" id="budgetModal" style="display:none">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">✕</button>
+      <h3 class="modal-title">Orçamento Enviado! 🎉</h3>
+      <p class="modal-text">Sua configuração foi registrada. Um especialista Toki.co entrará em contato em até 2 horas úteis para confirmar disponibilidade e condições de pagamento.</p>
+      <div class="modal-build" id="modalBuildSummary"></div>
+      <button class="btn-primary" id="modalOk">Entendido</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

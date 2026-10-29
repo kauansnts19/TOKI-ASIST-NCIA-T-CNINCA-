@@ -1,181 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeMaster - POO & Tecnologia</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLIPER-DESK
+Arcade Menu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap&quot; rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Menu de Navegação -->
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">CodeMaster</h1>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#poo">POO</a></li>
-                <li><a href="#loja">Loja</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </div>
-    </nav>
+<div class="arcade-room">
 
-    <!-- Hero / Home -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h2 class="hero-title">Domine a <span class="highlight">Programação Orientada a Objetos</span></h2>
-            <p class="hero-subtitle">Aprenda os fundamentos da POO de forma clara, prática e moderna. Desenvolva softwares mais organizados e escaláveis.</p>
-            <a href="#poo" class="btn primary">Começar a aprender</a>
-        </div>
-    </section>
+<div class="crt-monitor">
+<div class="scanlines"></div>
+<div class="screen-glow"></div>
 
-    <!-- Seção POO -->
-    <section id="poo" class="section">
-        <div class="container">
-            <h2 class="section-title">Programação Orientada a Objetos (POO)</h2>
-            <p class="section-description">A POO é um paradigma de programação que organiza o código em "objetos", facilitando a manutenção, reutilização e escalabilidade.</p>
+<div class="screen-content">
+<h1 class="title">FLIPER-DESK</h1>
 
-            <div class="poo-grid">
-                <!-- Classe -->
-                <div class="concept-card">
-                    <h3>1. Classes</h3>
-                    <p>São como "plantas" ou modelos que definem as propriedades e comportamentos dos objetos.</p>
-                    <pre><code>class Carro {
-    constructor(modelo, cor) {
-        this.modelo = modelo;
-        this.cor = cor;
-    }
-}</code></pre>
-                </div>
+<div class="menu-header">
+<div class="box-frame">SELECT GAME</div>
+<div class="subtitle">1980s CLASSICS</div>
+</div>
+<ul class="game-list" id="gameList">
+</ul>
+<div class="footer-info">
+<p class="blink">INSERT COIN</p>
+<p>1-2 PLAYERS</p>
+<p>CREDITS: 02</p>
+<p>HIGH SCORE: 987650</p>
+</div>
+</div>
+</div>
+</div>
 
-                <!-- Objeto -->
-                <div class="concept-card">
-                    <h3>2. Objetos</h3>
-                    <p>Instâncias concretas criadas a partir de uma classe.</p>
-                    <pre><code>const meuCarro = new Carro("Tesla Model 3", "Azul");</code></pre>
-                </div>
-
-                <!-- Encapsulamento -->
-                <div class="concept-card">
-                    <h3>3. Encapsulamento</h3>
-                    <p>Protege os dados internos da classe, expondo apenas o necessário.</p>
-                    <p>Usa <code>private</code>, getters e setters.</p>
-                </div>
-
-                <!-- Herança -->
-                <div class="concept-card">
-                    <h3>4. Herança</h3>
-                    <p>Permite que uma classe herde propriedades e métodos de outra.</p>
-                    <pre><code>class CarroEletrico extends Carro {
-    constructor(modelo, cor, bateria) {
-        super(modelo, cor);
-        this.bateria = bateria;
-    }
-}</code></pre>
-                </div>
-
-                <!-- Polimorfismo -->
-                <div class="concept-card">
-                    <h3>5. Polimorfismo</h3>
-                    <p>Permite que objetos de diferentes classes sejam tratados de forma uniforme.</p>
-                    <p>Um mesmo método pode ter comportamentos diferentes dependendo da classe.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Loja -->
-    <section id="loja" class="section loja">
-        <div class="container">
-            <h2 class="section-title">Nossa Loja</h2>
-            <p class="section-description">Produtos premium para programadores e entusiastas de tecnologia</p>
-
-            <div class="products-grid">
-                <div class="product-card">
-                    <img src="https://picsum.photos/id/20/300/200" alt="Curso POO">
-                    <h3>Curso Completo de POO</h3>
-                    <p>Do básico ao avançado com Java, Python e C#</p>
-                    <span class="price">R$ 297,00</span>
-                    <button class="btn buy-btn">Comprar</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://picsum.photos/id/201/300/200" alt="Livro Clean Code">
-                    <h3>Clean Code - Edição Especial</h3>
-                    <p>Guia prático para código legível e profissional</p>
-                    <span class="price">R$ 89,90</span>
-                    <button class="btn buy-btn">Comprar</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://picsum.photos/id/180/300/200" alt="Notebook Dev">
-                    <h3>Notebook Dev 16"</h3>
-                    <p>Ideal para programação e multitarefa</p>
-                    <span class="price">R$ 4.999,00</span>
-                    <button class="btn buy-btn">Comprar</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://picsum.photos/id/251/300/200" alt="Curso Java">
-                    <h3>Master Java Spring Boot</h3>
-                    <p>Backend profissional com Spring</p>
-                    <span class="price">R$ 347,00</span>
-                    <button class="btn buy-btn">Comprar</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://picsum.photos/id/60/300/200" alt="Mouse Gamer">
-                    <h3>Mouse Gamer RGB</h3>
-                    <p>Alta precisão para desenvolvedores</p>
-                    <span class="price">R$ 129,90</span>
-                    <button class="btn buy-btn">Comprar</button>
-                </div>
-
-                <div class="product-card">
-                    <img src="https://picsum.photos/id/201/300/200" alt="Curso Python">
-                    <h3>Python para Dados e IA</h3>
-                    <p>Domine Pandas, NumPy e Machine Learning</p>
-                    <span class="price">R$ 267,00</span>
-                    <button class="btn buy-btn">Comprar</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" class="section">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <form id="contact-form" class="contact-form">
-                <input type="text" placeholder="Seu nome" required>
-                <input type="email" placeholder="Seu e-mail" required>
-                <textarea placeholder="Sua mensagem" rows="6" required></textarea>
-                <button type="submit" class="btn primary">Enviar Mensagem</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 CodeMaster - Desenvolvido para portfólio</p>
-        </div>
-    </footer>
-
-    <script>
-        // Simulação de compra e envio de formulário
-        document.querySelectorAll('.buy-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                alert('✅ Produto adicionado ao carrinho! (Simulação)');
-            });
-        });
-
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('✅ Mensagem enviada com sucesso! Obrigado pelo contato.');
-            e.target.reset();
-        });
-    </script>
+<script src="script.js"></script>
 </body>
 </html>
